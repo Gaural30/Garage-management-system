@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Vehicle Form View -->
+    <record id="view_garage_vehicle_form" model="ir.ui.view">
+        <field name="name">garage.vehicle.form</field>
+        <field name="model">garage.vehicle</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="customer_id"/>
+                        <field name="registration_number"/>
+                        <field name="vin_number"/>
+                    </group>
+                    <group>
+                        <field name="make"/>
+                        <field name="model"/>
+                        <field name="year"/>
+                    </group>
+                    <group>
+                        <field name="last_service_date"/>
+                        <field name="next_service_date"/>
+                    </group>
+                    <notebook>
+                        <page string="Service History">
+                            <field name="service_history"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vehicle Tree View -->
+    <record id="view_garage_vehicle_tree" model="ir.ui.view">
+        <field name="name">garage.vehicle.tree</field>
+        <field name="model">garage.vehicle</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="customer_id"/>
+                <field name="registration_number"/>
+                <field name="make"/>
+                <field name="model"/>
+                <field name="year"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Service Form View -->
+    <record id="view_garage_service_form" model="ir.ui.view">
+        <field name="name">garage.service.form</field>
+        <field name="model">garage.service</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="vehicle_id"/>
+                        <field name="date"/>
+                        <field name="service_type"/>
+                        <field name="cost"/>
+                    </group>
+                    <group>
+                        <field name="mechanic_id"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Service Tree View -->
+    <record id="view_garage_service_tree" model="ir.ui.view">
+        <field name="name">garage.service.tree</field>
+        <field name="model">garage.service</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="vehicle_id"/>
+                <field name="date"/>
+                <field name="service_type"/>
+                <field name="cost"/>
+                <field name="mechanic_id"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
