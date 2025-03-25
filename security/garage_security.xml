@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+<record id="grp_garage_admin" model="res.groups">
+        <field name="name">Garege Administrator</field>
+</record>
+
+<record id="grp_garage_customer" model="res.groups">
+        <field name="name">Garage Customer</field>
+</record>
+
+</odoo>
