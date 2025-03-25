@@ -1,3 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_garage_admin,access.garage.admin,model_garage_vehicle,grp_garage_admin,1,1,1,1
-access_garage_customer,access.garage.customer,model_garage_vehicle,grp_garage_customer,1,1,1,1
+access_vehicle_admin,access.vehicle.admin,model_garage_vehicle,grp_garage_admin,1,1,1,1
+access_vehicle_customer,access.vehicle.customer,model_garage_vehicle,grp_garage_customer,1,1,1,1
+
+
+access_customer_admin,access.customer.admin,model_garage_customer,grp_garage_admin,1,1,1,1
+access_customer_customer,access.customer.customer,model_garage_customer,grp_garage_customer,1,1,1,1
+
+

@@ -83,14 +83,14 @@
 
 <menuitem id="menu_garage_app" name="Garage Management"/>
 
-   
-<menuitem id="menu_vehicle_info" name="Vehicle Info" parent="menu_garage_app"/>
-
   
-<menuitem id="menu_vehicle" action="action_garage_vehicle" parent="menu_vehicle_info"/>
+<menuitem id="menu_vehicle" action="action_garage_vehicle" parent="menu_garage_app"/>
 
 
 <menuitem id="menu_config" name="Configuration" parent="menu_garage_app" sequence="100"/>
+
+
+
 
 
 

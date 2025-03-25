@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+<record id="view_customer_form" model="ir.ui.view">
+    <field name="name">view_customer_form</field>
+    <field name="model">garage.customer</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="phone"/>
+                    <field name="email" widget="email" />
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+<record id="view_customer_tree" model="ir.ui.view">
+    <field name="name">view_customer_tree</field>
+    <field name="model">garage.customer</field>
+    <field name="arch" type="xml">
+        <list>
+            <field name="name"/>
+            <field name="phone" />
+        </list>
+    </field>
+</record>
+
+
+<record id="view_customer_search" model="ir.ui.view">
+    <field name="name">view_customer_search</field>
+    <field name="model">garage.customer</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="name" />
+            <field name="phone" />
+        </search>
+    </field>
+</record>
+
+
+<record id="action_garage_customer" model="ir.actions.act_window">
+        <field name="name">Customer</field>
+        <field name="res_model">garage.customer</field>
+        <field name="view_mode">list,form</field>
+</record>
+
+<menuitem id="menu_customer" action="action_garage_customer" parent="menu_garage_app" />
+
+
+</odoo>
