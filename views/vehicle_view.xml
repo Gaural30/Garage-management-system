@@ -12,7 +12,7 @@
                     <field name="name" />
                     <field name="registration_number" />
                     <field name="vin_number" />
-                    <field name="make" />
+                    <field name="manufacturer" />
                     <field name="model" />
                     <field name="year" />
                     <field name="km" />
