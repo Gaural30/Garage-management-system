@@ -18,6 +18,8 @@ class GarageVehicle(models.Model):
     
     description = fields.Text(string="Description", help="Descriptin")
     active = fields.Boolean(string='Active', default=True)
+    priority = fields.Selection([(str(ele),str(ele)) for ele in range(0,6)], 'Priority')
+
     # password = fields.Char('Password')
     # email = fields.Char("Email")
     # website = fields.Char("Website")

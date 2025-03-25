@@ -21,6 +21,8 @@
                             <field name="model" placeholder="Model name eg: 4v, 6G"/>
                             <field name="year"/>
                             <field name="km"/>
+                            <field name="priority" widget="priority"/>
+
                             <!-- <field name="email" wedget="email" /> -->
                             <!-- <field name="website" wedget="url"/> -->
                         </group>
