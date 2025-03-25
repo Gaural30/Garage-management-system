@@ -6,8 +6,8 @@ class GarageVehicle(models.Model):
 
 
     name = fields.Char(string='Vehicle Name', required=True, help="This is name of vehicle")
-    registration_number = fields.Char(string='Registration Number', required=True, help = "This is number plate of Vehicle")
-    vin_number = fields.Char(string='VIN Number', help="Unique 17-character alphanumeric code")
+    registration_number = fields.Char(string='Registration Number', required=True, help = "This is number plate of Vehicle" ,size=7)
+    vin_number = fields.Char(string='VIN Number', help="Unique 17-character alphanumeric code" , size=17)
     manufacturer = fields.Char(string='Manufacturer',help="Name of company")
     model = fields.Char(string='Model', help="Model of vehicle")
     year = fields.Integer(string='Year' , help="Manufacturing Year")
