@@ -28,6 +28,7 @@
                                 <field name="time"/>
                                 <field name="service_type" widget="radio"/>
                                 <field name="description"/>
+                                <field name="password" password="*"/>
                                 <field name="active"/>
                             </group>
                         </page>

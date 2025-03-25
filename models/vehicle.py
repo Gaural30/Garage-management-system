@@ -18,3 +18,4 @@ class GarageVehicle(models.Model):
     # gender = fields.Selection(selection=[('male', 'Male'), ('female', 'Female')], string='Gender')
     description = fields.Text(string="Description", help="Descriptin")
     active = fields.Boolean(string='Active', default=True,invisible=True)
+    password = fields.Char('Password')
