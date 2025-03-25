@@ -9,11 +9,11 @@
         <form>
             <sheet>
                 <group>
-                    <field name="name" />
-                    <field name="registration_number" />
-                    <field name="vin_number" />
-                    <field name="manufacturer" />
-                    <field name="model" />
+                    <field name="name" placeholder="Name of vehicle eg- Activa, Apache"/>
+                    <field name="registration_number" placeholder="Number plate"/>
+                    <field name="vin_number" placeholder="17 digit AlphaNumeric code"/>
+                    <field name="manufacturer" placeholder="Company name eg: Honda, Hero"/>
+                    <field name="model" placeholder="Model name eg: 4v, 6G"/>
                     <field name="year" />
                     <field name="km" />
                     <field name="date" />
