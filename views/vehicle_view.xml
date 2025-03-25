@@ -47,7 +47,7 @@
             <field name="name" />
             <field name="registration_number" />
             <field name="time" />
-            <field name="active" />
+            <!-- <field name="active" invisible="1"/> -->
 
         </list>
     </field>

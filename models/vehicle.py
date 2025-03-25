@@ -17,4 +17,4 @@ class GarageVehicle(models.Model):
     service_type = fields.Selection(selection=[('free','Free'),('paid','Paid')], string='Srevice Type', help="Service type")
     # gender = fields.Selection(selection=[('male', 'Male'), ('female', 'Female')], string='Gender')
     description = fields.Text(string="Description", help="Descriptin")
-    active = fields.Boolean(string='Active', default=True)
+    active = fields.Boolean(string='Active', default=True,invisible=True)
