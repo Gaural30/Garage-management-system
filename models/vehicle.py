@@ -15,7 +15,9 @@ class GarageVehicle(models.Model):
     date=fields.Date(string="Date", default=fields.Date.today(), help="Today's Date" , index=True)
     time = fields.Datetime(string="DateTime", default=fields.Datetime.now(), help="Current Date and Time")
     service_type = fields.Selection(selection=[('free','Free'),('paid','Paid')], string='Srevice Type', help="Service type")
-    # gender = fields.Selection(selection=[('male', 'Male'), ('female', 'Female')], string='Gender')
+    
     description = fields.Text(string="Description", help="Descriptin")
-    active = fields.Boolean(string='Active', default=True,invisible=True)
-    password = fields.Char('Password')
+    active = fields.Boolean(string='Active', default=True)
+    # password = fields.Char('Password')
+    # email = fields.Char("Email")
+    # website = fields.Char("Website")

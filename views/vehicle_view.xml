@@ -7,6 +7,9 @@
         <field name="model">garage.vehicle</field>
         <field name="arch" type="xml">
             <form>
+            <header>
+                <h2>Add Vehicles Details</h2>
+            </header>
                 <sheet>
                     <group>
                         <separator string="Vehicle Information"/>
@@ -18,6 +21,8 @@
                             <field name="model" placeholder="Model name eg: 4v, 6G"/>
                             <field name="year"/>
                             <field name="km"/>
+                            <!-- <field name="email" wedget="email" /> -->
+                            <!-- <field name="website" wedget="url"/> -->
                         </group>
                     </group>
                     
@@ -28,8 +33,8 @@
                                 <field name="time"/>
                                 <field name="service_type" widget="radio"/>
                                 <field name="description"/>
-                                <field name="password" password="*"/>
-                                <field name="active"/>
+                                <!-- <field name="password" password="*"/> -->
+                                <field name="active" widget="boolean_toggle"/>
                             </group>
                         </page>
                     </notebook>
@@ -48,6 +53,7 @@
             <field name="name" />
             <field name="registration_number" />
             <field name="time" />
+            <field name="active" widget="boolean_toggle"/>
             <!-- <field name="active" invisible="1"/> -->
 
         </list>
