@@ -5,6 +5,8 @@ class GarageVehicle(models.Model):
     _description = 'Garage Vehicle'
 
     customer_id=fields.Many2one('garage.customer', "Customer")
+    phone = fields.Char(related="customer_id.phone", string='Mobile Number')
+    email = fields.Char(related="customer_id.email", string="Email")
     name = fields.Char(string='Vehicle Name', required=True, help="This is name of vehicle")
     registration_number = fields.Char(string='Registration Number', required=True, help = "This is number plate of Vehicle" ,size=10)
     vin_number = fields.Char(string='VIN Number', help="Unique 17-character alphanumeric code" , size=17)
@@ -21,5 +23,5 @@ class GarageVehicle(models.Model):
     priority = fields.Selection([(str(ele),str(ele)) for ele in range(0,5)], 'Priority')
 
     # password = fields.Char('Password')
-    # email = fields.Char("Email")
+    #
     # website = fields.Char("Website")
