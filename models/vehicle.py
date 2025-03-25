@@ -4,7 +4,7 @@ class GarageVehicle(models.Model):
     _name ='garage.vehicle'
     _description = 'Garage Vehicle'
 
-
+    customer_id=fields.Many2one('garage.customer', "Customer")
     name = fields.Char(string='Vehicle Name', required=True, help="This is name of vehicle")
     registration_number = fields.Char(string='Registration Number', required=True, help = "This is number plate of Vehicle" ,size=10)
     vin_number = fields.Char(string='VIN Number', help="Unique 17-character alphanumeric code" , size=17)
