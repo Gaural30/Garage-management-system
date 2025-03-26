@@ -21,7 +21,7 @@
 
                         <separator string="Vehicle Information"/>
                         <group>
-                            
+                            <field name="photo" widget='image' class="oe_avatar"/>
                             <field name="name" placeholder="Name of vehicle eg- Activa, Apache"/>
                             <field name="registration_number" placeholder="Number plate"/>
                             <field name="vin_number" placeholder="17 digit AlphaNumeric code"/>

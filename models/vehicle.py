@@ -39,3 +39,4 @@ class GarageVehicle(models.Model):
     )
     attachment = fields.Binary(string="File Attachment", help="Upload a file")
     attachment_name = fields.Char(string="File Name", help="Preserve the file name")
+    photo = fields.Image('Photo')
