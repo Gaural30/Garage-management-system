@@ -3,6 +3,7 @@ from odoo import models, fields, api
 class GarageVehicle(models.Model):
     _name ='garage.vehicle'
     _description = 'Garage Vehicle'
+    _order = 'sequence'
 
     customer_id=fields.Many2one('garage.customer', "Customer" , ondelete="restrict")
     phone = fields.Char(related="customer_id.phone", string='Mobile Number')
@@ -50,3 +51,5 @@ class GarageVehicle(models.Model):
         ('ready', 'Ready for Pickup'),
         ('delivered', 'Delivered')
     ], string="Status", default='received', tracking=True)
+
+    sequence = fields.Integer('Sequence')
