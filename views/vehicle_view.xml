@@ -14,7 +14,7 @@
                     <group>
                         <separator string="Customer Information"/>
                         <group>
-                            <field name="customer_id" />
+                            <field name="customer_id" options="{'no_create': True}"/>
                             <field name="phone" />
                             <field name="email" />
                         </group>
