@@ -74,7 +74,7 @@
     <field name="model">garage.vehicle</field>
     <field name="arch" type="xml">
         <list>
-            <field name="sequence" />
+            <field name="sequence" widget="handle"/>
             <field name="name" />
             <field name="amount"/>
             <field name="registration_number" />
