@@ -41,3 +41,4 @@ class GarageVehicle(models.Model):
     attachment_name = fields.Char(string="File Name", help="Preserve the file name")
 
     photo = fields.Image('Photo')
+    repair_hours = fields.Integer(string="Repair Hours", help="Total repair time in hours")

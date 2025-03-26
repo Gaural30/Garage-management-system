@@ -10,6 +10,9 @@
             <sheet>
                 <group>
                     <field name="name" />
+                    <field name="labor_hours"/>
+                    <field name="part_cost"/>
+                    <field name="service_charge"/>
                 </group>
             </sheet>
         </form>
@@ -23,6 +26,9 @@
 
         <list>
             <field name="name" />
+            <field name="labor_hours"/>
+            <field name="part_cost"/>
+            <field name="service_charge"/>
         </list>
             
     </field>

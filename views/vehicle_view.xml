@@ -74,9 +74,11 @@
     <field name="arch" type="xml">
         <list>
             <field name="name" />
+            <field name="amount"/>
             <field name="registration_number" />
             <field name="time" />
             <field name="active" widget="boolean_toggle"/>
+            
             <!-- <field name="active" invisible="1"/> -->
 
         </list>
