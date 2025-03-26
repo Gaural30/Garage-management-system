@@ -27,3 +27,5 @@ class GarageVehicle(models.Model):
     # website = fields.Char("Website")
 
     symptom_ids = fields.One2many("garage.symptom", "vehicle_id", string="Symptoms")
+    currency_id = fields.Many2one('res.currency', 'Currency')
+    amount = fields.Monetary(currency_field='currency_id',string='Amount', aggregator='max')
