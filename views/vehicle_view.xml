@@ -32,6 +32,7 @@
                             <field name="priority" widget="priority"/>
                             <field name="currency_id"/>
                             <field name="amount"/>
+                            <field name="record_reference"/>
 
                             <!-- <field name="email" wedget="email" /> -->
                             <!-- <field name="website" wedget="url"/> -->
