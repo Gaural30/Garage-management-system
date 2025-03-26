@@ -42,3 +42,11 @@ class GarageVehicle(models.Model):
 
     photo = fields.Image('Photo')
     repair_hours = fields.Integer(string="Repair Hours", help="Total repair time in hours")
+
+    state = fields.Selection([
+        ('received', 'Received'),
+        ('diagnosed', 'Diagnosed'),
+        ('in_progress', 'In Progress'),
+        ('ready', 'Ready for Pickup'),
+        ('delivered', 'Delivered')
+    ], string="Status", default='received', tracking=True)
