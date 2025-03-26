@@ -6,4 +6,7 @@ access_vehicle_customer,access.vehicle.customer,model_garage_vehicle,grp_garage_
 access_customer_admin,access.customer.admin,model_garage_customer,grp_garage_admin,1,1,1,1
 access_customer_customer,access.customer.customer,model_garage_customer,grp_garage_customer,1,1,1,1
 
+access_symptom_admin,access.symptom.admin,model_garage_symptom,grp_garage_admin,1,1,1,1
+access_symptom_customer,access.symptom.customer,model_garage_symptom,grp_garage_customer,1,1,1,1
+
 

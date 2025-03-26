@@ -47,6 +47,13 @@
                                 <field name="active" widget="boolean_toggle"/>
                             </group>
                         </page>
+
+                        <page name="symptom" string="Symptoms">
+                                <field name="symptom_ids" widget="one2many_list" editable="bottom"/>
+                        </page>
+                        <!-- <page name="symptom" string="Symptom">
+                                <field name="symptom_ids"/>
+                        </page> -->
                     </notebook>
                 </sheet>
             </form>

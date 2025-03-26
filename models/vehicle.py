@@ -25,3 +25,5 @@ class GarageVehicle(models.Model):
     # password = fields.Char('Password')
     #
     # website = fields.Char("Website")
+
+    symptom_ids = fields.One2many("garage.symptom", "vehicle_id", string="Symptoms")
