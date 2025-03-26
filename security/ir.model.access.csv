@@ -10,3 +10,7 @@ access_symptom_admin,access.symptom.admin,model_garage_symptom,grp_garage_admin,
 access_symptom_customer,access.symptom.customer,model_garage_symptom,grp_garage_customer,1,1,1,1
 
 
+access_repair_admin,access.repair.admin,model_garage_repair,grp_garage_admin,1,1,1,1
+access_repair_customer,access.repair.customer,model_garage_repair,grp_garage_customer,1,1,1,1
+
+

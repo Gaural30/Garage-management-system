@@ -9,7 +9,8 @@
         'security/ir.model.access.csv',
         'views/vehicle_view.xml',
         'views/customer_view.xml',
-        'views/symptom_view.xml'
+        'views/symptom_view.xml',
+        'views/repair_view.xml'
     ],
     'sequence': 10,
     'auto_install': False,
