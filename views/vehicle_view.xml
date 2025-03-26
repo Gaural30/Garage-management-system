@@ -8,7 +8,7 @@
         <field name="arch" type="xml">
             <form>
             <header>
-            <field name="state" widget="statusbar" statusbar_visible="received,diagnosed,in_progress,ready,delivered"/>
+            <field name="state" widget="statusbar" options="{'clickable':1}" statusbar_visible="received,diagnosed,in_progress,ready,delivered"/>
             <h2>Add Vehicles Details</h2>
             </header>
                 <sheet>
