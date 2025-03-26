@@ -33,7 +33,10 @@
                             <field name="currency_id"/>
                             <field name="amount"/>
                             <field name="record_reference"/>
-
+                            
+                            <field name="attachment" filename="attachment_name"/>
+                            <field name="attachment_name" invisible="1"/>
+                            
                             <!-- <field name="email" wedget="email" /> -->
                             <!-- <field name="website" wedget="url"/> -->
                         </group>

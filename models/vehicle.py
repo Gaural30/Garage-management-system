@@ -37,3 +37,5 @@ class GarageVehicle(models.Model):
         string="Related Record",
         help="Select a record from multiple models"
     )
+    attachment = fields.Binary(string="File Attachment", help="Upload a file")
+    attachment_name = fields.Char(string="File Name", help="Preserve the file name")
