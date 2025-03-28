@@ -76,6 +76,7 @@
     <field name="arch" type="xml">
         <list>
             <field name="sequence" widget="handle"/>
+            <field name="customer_id" />
             <field name="vehicle_name" />
             <!-- <field name="amount"/> -->
             <field name="registration_number" />

@@ -17,3 +17,6 @@ access_jobcard_admin,access.jobcard.admin,model_garage_jobcard,grp_garage_admin,
 access_jobcard_customer,access.jobcard.customer,model_garage_jobcard,grp_garage_customer,1,1,1,1
 
 
+access_vehiclecompany_admin,access.vehiclecompany.admin,model_garage_vehicle_company,grp_garage_admin,1,1,1,1
+access_vehiclecompany_customer,access.vehiclecompany.customer,model_garage_vehicle_company,grp_garage_customer,1,1,1,1
+

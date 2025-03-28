@@ -11,7 +11,9 @@
         'views/customer_view.xml',
         'views/symptom_view.xml',
         'views/repair_view.xml',
-        'views/jobcard_view.xml'
+        'views/jobcard_view.xml',
+        'views/vehicle_company_view.xml'
+        
     ],
     'sequence': 10,
     'auto_install': False,
