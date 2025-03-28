@@ -49,7 +49,10 @@
         <field name="view_mode">list,form</field>
 </record>
 
-<menuitem id="menu_customer" action="action_garage_customer" parent="menu_garage_app" />
+<!-- <menuitem id="menu_customer" action="action_garage_customer" parent="menu_garage_app" /> -->
+
+<menuitem id="menu_customer" action="action_garage_customer" parent="menu_config"/>
+
 
 
 </odoo>

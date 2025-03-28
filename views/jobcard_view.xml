@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+
+<record id="view_jobcard_form" model="ir.ui.view">
+    <field name="name">view_jobcard_form</field>
+    <field name="model">garage.jobcard</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <field name="customer_id"/>
+                    <field name="vehicle_name"/>
+                    <field name="registration_number" />
+                    <field name="vehicle_model" />
+                    <field name="service_type" widget="radio" />
+                    <field name="mechanic_id" />
+                    
+                    <field name="service_date" />
+                    <field name="symptom_ids" />
+                    <field name="description" />
+                </group>
+            </sheet>
+        </form>
+    </field> 
+</record>
+
+
+<record id="view_jobcard_tree" model="ir.ui.view">
+    <field name="name">view_jobcard_tree</field>
+    <field name="model">garage.jobcard</field>
+    <field name="arch" type="xml">
+        <list>
+            <field name="customer_id"/>
+            <field name="vehicle_name"/>
+        </list>
+    </field>
+</record>
+
+<record id="view_jobcard_search" model="ir.ui.view">
+    <field name="name">view_jobcard_search</field>
+    <field name="model">garage.jobcard</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="registration_number"/>
+        </search>
+    </field>
+</record>
+
+<record id="action_garage_jobcard" model="ir.actions.act_window">
+        <field name="name">Jobcard</field>
+        <field name="res_model">garage.jobcard</field>
+        <field name="view_mode">list,form</field>
+</record>
+
+<menuitem id="menu_jobcard" action="action_garage_jobcard" parent="menu_garage_app" />
+
+</odoo>

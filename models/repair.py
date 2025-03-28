@@ -8,6 +8,7 @@ class repair(models.Model):
     _description = "This is for add one2many in vehiches"
 
 
-    repair_id = fields.Many2one("garage.vehicle", "Vehicle")
+    # repair_id = fields.Many2one("garage.vehicle", "Vehicle")
+    jobcard_id = fields.Many2one("garage.jobcard", string="Job Card")
 
     name=fields.Many2one("garage.symptom","symptom")

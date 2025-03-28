@@ -1,6 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_vehicle_admin,access.vehicle.admin,model_garage_vehicle,grp_garage_admin,1,1,1,1
-access_vehicle_customer,access.vehicle.customer,model_garage_vehicle,grp_garage_customer,1,1,1,1
+access_vehicle_customer,access.vehicle.customer,model_garage_vehicle,grp_garage_customer,1,1,0,0
 
 
 access_customer_admin,access.customer.admin,model_garage_customer,grp_garage_admin,1,1,1,1
@@ -12,5 +12,8 @@ access_symptom_customer,access.symptom.customer,model_garage_symptom,grp_garage_
 
 access_repair_admin,access.repair.admin,model_garage_repair,grp_garage_admin,1,1,1,1
 access_repair_customer,access.repair.customer,model_garage_repair,grp_garage_customer,1,1,1,1
+
+access_jobcard_admin,access.jobcard.admin,model_garage_jobcard,grp_garage_admin,1,1,1,1
+access_jobcard_customer,access.jobcard.customer,model_garage_jobcard,grp_garage_customer,1,1,1,1
 
 

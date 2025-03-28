@@ -8,60 +8,61 @@
         <field name="arch" type="xml">
             <form>
             <header>
-            <field name="state" widget="statusbar" options="{'clickable':1}" statusbar_visible="received,diagnosed,in_progress,ready,delivered"/>
+            <!-- <field name="state" widget="statusbar" options="{'clickable':1}" statusbar_visible="received,diagnosed,in_progress,ready,delivered"/> -->
             <h2>Add Vehicles Details</h2>
             </header>
                 <sheet>
                     <group>
                         <separator string="Customer Information"/>
                         <group>
-                            <field name="customer_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="customer_id" />
                             <field name="phone" />
                             <field name="email" />
                         </group>
 
                         <separator string="Vehicle Information"/>
                         <group>
-                            <field name="photo" widget='image' class="oe_avatar"/>
-                            <field name="name" placeholder="Name of vehicle eg- Activa, Apache"/>
+                            <!-- <field name="photo" widget='image' class="oe_avatar"/> -->
+                            <field name="vehicle_name" placeholder="Name of vehicle eg- Activa, Apache"/>
                             <field name="registration_number" placeholder="Number plate"/>
                             <field name="vin_number" placeholder="17 digit AlphaNumeric code"/>
                             <field name="manufacturer" placeholder="Company name eg: Honda, Hero"/>
-                            <field name="model" placeholder="Model name eg: 4v, 6G"/>
+                            <field name="vehicle_model" placeholder="Model name eg: 4v, 6G"/>
                             <field name="year"/>
-                            <field name="km"/>
-                            <field name="priority" widget="priority"/>
-                            <field name="currency_id"/>
-                            <field name="amount"/>
-                            <field name="record_reference"/>
+                            <!-- <field name="km"/> -->
+                            <field name="fuel_type" widget="radio"/>
+                            <!-- <field name="priority" widget="priority"/> -->
+                            <!-- <field name="currency_id"/> -->
+                            <!-- <field name="amount"/> -->
+                            <!-- <field name="record_reference"/> -->
                             
-                            <field name="attachment" filename="attachment_name"/>
-                            <field name="attachment_name" invisible="1"/>
+                            <!-- <field name="attachment" filename="attachment_name"/> -->
+                            <!-- <field name="attachment_name" invisible="1"/> -->
                             
                             <!-- <field name="email" wedget="email" /> -->
                             <!-- <field name="website" wedget="url"/> -->
                         </group>
                     </group>
                     
-                    <notebook>
-                        <page string="Service Details">
-                            <group>
-                                <field name="date"/>
-                                <field name="time"/>
-                                <field name="service_type" widget="radio"/>
-                                <field name="description"/>
+                    <!-- <notebook> -->
+                        <!-- <page string="Service Details"> -->
+                            <!-- <group> -->
+                                <!-- <field name="date"/> -->
+                                <!-- <field name="time"/> -->
+                                <!-- <field name="fuel_type" widget="radio"/> -->
+                                <!-- <field name="description"/> -->
                                 <!-- <field name="password" password="*"/> -->
-                                <field name="active" widget="boolean_toggle"/>
-                            </group>
-                        </page>
+                                <!-- <field name="active" widget="boolean_toggle"/> -->
+                            <!-- </group> -->
+                        <!-- </page> -->
 
-                        <page name="symptom" string="Symptoms">
-                                <field name="symptom_ids" widget="one2many_list" editable="bottom"/>
-                        </page>
+                        <!-- <page name="symptom" string="Symptoms"> -->
+                                <!-- <field name="symptom_ids" widget="one2many_list" editable="bottom"/> -->
+                        <!-- </page> -->
                         <!-- <page name="symptom" string="Symptom">
                                 <field name="symptom_ids"/>
                         </page> -->
-                    </notebook>
+                    <!-- </notebook> -->
                 </sheet>
             </form>
         </field>
@@ -75,11 +76,11 @@
     <field name="arch" type="xml">
         <list>
             <field name="sequence" widget="handle"/>
-            <field name="name" />
-            <field name="amount"/>
+            <field name="vehicle_name" />
+            <!-- <field name="amount"/> -->
             <field name="registration_number" />
-            <field name="time" />
-            <field name="active" widget="boolean_toggle"/>
+            <!-- <field name="time" /> -->
+            <!-- <field name="active" widget="boolean_toggle"/> -->
             
             <!-- <field name="active" invisible="1"/> -->
 
@@ -92,7 +93,7 @@
     <field name="model">garage.vehicle</field>
     <field name="arch" type="xml">
         <search>
-            <field name="name" />
+            <field name="vehicle_name" />
             <field name="registration_number" />
         </search>
     </field>
