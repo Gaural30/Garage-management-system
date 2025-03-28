@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models ,api
 
 class JobCard(models.Model):
     _name="garage.jobcard"
@@ -15,3 +15,16 @@ class JobCard(models.Model):
     symptom_ids = fields.One2many("garage.repair", "jobcard_id", string="Symptoms")
     service_date= fields.Date(string="Date" ,default=fields.Date.today())
     description = fields.Text(string="Description", help="If proble is not i Symptom")
+    spare_part_ids = fields.Many2many('garage.sparepart', string="Spare Parts Used")
+
+
+    @api.model
+    def create(self, vals):
+        """ Deducts spare part stock when job card is created """
+        job_card = super(JobCard, self).create(vals)
+        for spare_part in job_card.spare_part_ids:
+            if spare_part.qty_available > 0:
+                spare_part.qty_available -= 1  # Deducts stock
+            else:
+                raise ValueError(f"Not enough stock for {spare_part.name}")
+        return job_card

@@ -3,7 +3,7 @@
     'summary': 'This model wil be used for Garage Management System',
     'category' : 'Garage',
     'auther': 'Gaural Makwana',
-    'depends':['base','hr'],
+    'depends':['base','hr','stock'],
     'data' : [
         'security/garage_security.xml',
         'security/ir.model.access.csv',
@@ -12,7 +12,8 @@
         'views/symptom_view.xml',
         'views/repair_view.xml',
         'views/jobcard_view.xml',
-        'views/vehicle_company_view.xml'
+        'views/vehicle_company_view.xml',
+        'views/sparepart_view.xml'
         
     ],
     'sequence': 10,
