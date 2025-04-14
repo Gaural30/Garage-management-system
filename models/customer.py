@@ -275,4 +275,24 @@ class Customer(models.Model):
         print(company)
 
 
+# what is self: self refers to the current recordset
+
+    def blank_recordset(self):
+         empty_recordset = self.env['garage.jobcard'].browse([])
+         print("Blank Recordset",empty_recordset)
+
+    def iterate(self):
+         """
+        Iterate in a recordset to fetch a single record recordset.
+        --------------------------------------------------------------
+        @param self: object pointer
+        """
+         iterte_rec = self.env['garage.vehicle.company'].search([])
+         for i in iterte_rec:
+              print(i.company_name)
+              
+    def normal_field(self):
+         res= self.browse([4])
+         print(res.name)
+         print(res.phone)
 

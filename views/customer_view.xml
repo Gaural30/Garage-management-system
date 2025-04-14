@@ -31,6 +31,9 @@
                     <button name="crt_login_user" type="object" string="Current User" class="btn-warning" />
                     <button name="another_model" type="object" string="Another Model" class="btn-warning" />
                     <button name="xml_id" type="object" string="XML" class="btn-warning" />
+                    <button name="blank_recordset" type="object" string="Recordset" class="btn-warning" />
+                    <button name="iterate" type="object" string="Inerate Recordset" class="btn-warning" />
+                    <button name="normal_field" type="object" string="browse" class="btn-warning" />
 
 
         </header>
