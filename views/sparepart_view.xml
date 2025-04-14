@@ -10,11 +10,11 @@
             <sheet>
                 <group>
                     <field name="name" />
-                    <field name="part_number"/>
-                    <field name="quantity" readonly="1"/>
+                    <field name="product_id"/>
+                    <field name="quantity" />
                     <field name="cost_price"/>
                     <field name="sale_price"/>
-                    <field name="supplier_id"/>
+                    <!-- <field name="supplier_id"/> -->
                     <field name="location_id"/>
                 </group>
             </sheet>
@@ -30,7 +30,7 @@
 
         <list>
             <field name="name" />
-            <field name="part_number"/>
+            <field name="product_id"/>
             <!-- <field name="quantity"/> -->
             <field name="quantity" readonly="1"/>
         </list>
@@ -45,7 +45,7 @@
 
         <search>
             <field name="name" />
-            <field name="part_number"/>
+            <field name="product_id"/>
         </search>
             
     </field>
@@ -58,12 +58,18 @@
         <field name="view_mode">list,form</field>
 </record>
 
-<!-- <menuitem id="menu_sparepart" action="action_garage_sparepart" parent="menu_garage_app" /> -->
+<menuitem id="menu_sparepart" action="action_garage_sparepart" parent="menu_garage_app" />
 
 
-<menuitem id="menu_sparepart" action="action_garage_sparepart" parent="menu_config"/>
+<!-- <menuitem id="menu_sparepart" action="action_garage_sparepart" parent="menu_config"/> -->
 
 
+
+<!-- <menuitem id="garage_sparepart_menu"
+              name="Spare Parts"
+              parent="menu_inventory"
+              sequence="30"
+              action="action_garage_sparepart"/> -->
 
 </odoo>
 

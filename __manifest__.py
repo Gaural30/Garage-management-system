@@ -13,7 +13,8 @@
         'views/repair_view.xml',
         'views/jobcard_view.xml',
         'views/vehicle_company_view.xml',
-        'views/sparepart_view.xml'
+        'views/sparepart_view.xml',
+        
         
     ],
     'sequence': 10,

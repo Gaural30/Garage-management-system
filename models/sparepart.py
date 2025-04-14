@@ -7,17 +7,14 @@ class SpareParts(models.Model):
 
     
     name = fields.Char(string="Part Name", required=True)
-    part_number = fields.Char(string="Part Number", required=True, unique=True)
-    quantity = fields.Integer(string="Stock Quantity", default=0)
-    cost_price = fields.Float(string="Cost Price", digits=(6,2))
-    sale_price = fields.Float(string="Sale Price", digits=(6,2))
-    supplier_id = fields.Many2one('res.partner', string="Supplier")
+    # part_number = fields.Char(string="Part Number", required=True, unique=True)
+    product_id = fields.Many2one('product.product', string="Linked Product", required=True)
+    product_id = fields.Many2one('product.product', string="Linked Product", required=True)  # Link to Inventory
+    quantity = fields.Float(related='product_id.qty_available', string="Stock Quantity", readonly=True)
+    cost_price = fields.Float(related='product_id.standard_price', string="Cost Price", readonly=True)
+    sale_price = fields.Float(related='product_id.list_price', string="Sale Price", readonly=True)
     location_id = fields.Many2one('stock.location', string="Stock Location")
 
 
     
-    @api.depends('qty_available')
-    def _compute_stock(self):
-        """ Updates stock quantity dynamically from inventory """
-        for record in self:
-            record.quantity = record.qty_available
+    
