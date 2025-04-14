@@ -318,7 +318,10 @@ class Customer(models.Model):
     
     def ensure_one_method(self):
          """
-         Use the ensure_one method with a single record recordset
+         Fetch the predefined fields / magic fields for a record from a
+         recordset containing a single record.
+         Fetch the predefined fields / magic fields for multiple records
+         from a recordset containing multiple records.
          --------------------------------------------------------------
         @param self: object pointer
          """
@@ -341,5 +344,25 @@ class Customer(models.Model):
             print("Last Updated:", partner.write_date)
             print("Updated by:", partner.write_uid.name)
 
+    def filter_val(self):
+        #  ids_without_email = self.search([('email', '=', False)])
+        #  print("ID without email",ids_without_email)
 
+        all_records = self.search([])  
+        ids_without_email = all_records.filtered(lambda rec: not rec.email)
+        print("IDs without email:", ids_without_email)
+
+
+        ids_with_email = all_records.filtered(lambda rec: rec.email)  
+        print("IDs with email:", ids_with_email)
+
+
+        filtered_records_without_lambda = self.search([
+        ('email', '!=', False), 
+        ('manufacturer.company_name', '=', 'tatacar')])
+        print("Filtered Records without lambda:", filtered_records_without_lambda)
+
+        filtered_records = all_records.filtered(
+        lambda rec: rec.email and rec.manufacturer and rec.manufacturer.company_name.lower() == 'tatacar')
+        print("Filtered Records with multiple conditions:", filtered_records)
 
