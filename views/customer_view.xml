@@ -19,7 +19,6 @@
                 </div>
                     <button name="record_name" type="object" string="Print Name" class="btn-success" />
                     <button name="create_sample_customer_only" type="object" string="Customer Only" class="btn-primary"/>
-                    <button name="browse_record" type="object" string="Browse" class="btn-primary" />
 
                     <button name="read_method" type="object" string="Read" class="btn-primary" />
                     <button name="copy_method" type="object" string="Copy" class="btn-success" />
@@ -43,6 +42,7 @@
                     <button name="check_rec_exit" type="object" string="Check Records" class="btn-warning" />
                     <button name="create_record" type="object" string="Create Records" class="btn-danger" />
                     <button name="write_record" type="object" string="Write Records" class="btn-danger" />
+                    <button name="browse_record" type="object" string="Browse" class="btn-primary" />
 
 
         </header>

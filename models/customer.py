@@ -135,32 +135,7 @@ class Customer(models.Model):
             rec.write(new_rec)
 
 
-    def browse_record(self):
-
-        # Browse single record
-        rec5 = self.browse(25)
-        # id5 = rec5.name
-        print("Rec 5", rec5.name)
-
-
-        # Browse Multiple Records
-        # rec34 = self.browse([3,4])
-        # print("Rec 3 and 4", rec34)
-
-
-        # browse form another model 
-        other_module = self.env['garage.jobcard']
-
-        # Single 
-        job4 = other_module.browse(4)
-        print("Job 4", job4)
-
-
-        # multiple
-        job56 = other_module.browse([5,6])
-        for rec in job56:
-            
-                print("job 5 and 6 ", rec.service_date)
+    
 
 
 
@@ -550,3 +525,29 @@ class Customer(models.Model):
                 remove_all = {'symp_idss':[(5,0,0)]}
                 rec.write(remove_all)
 
+    def browse_record(self):
+
+
+            # Browse single record
+            rec5 = self.browse(30)
+            print("Rec 5", rec5.name)
+
+
+            # Browse Multiple Records
+            rec34 = self.browse([3,4])
+            print("Rec 3 and 4", rec34)
+
+
+            # browse form another model 
+            other_module = self.env['garage.jobcard']
+
+            # # Single 
+            job4 = other_module.browse(4)
+            print("Job 4", job4)
+
+
+            # # multiple
+            job56 = other_module.browse([5,6])
+            for rec in job56:
+                
+                    print("job 5 and 6 ", rec.service_date)
