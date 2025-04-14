@@ -41,6 +41,8 @@
                     <button name="print_email" type="object" string="Print Email" class="btn-warning" />
                     <button name="sort_records" type="object" string="Sort Records" class="btn-warning" />
                     <button name="check_rec_exit" type="object" string="Check Records" class="btn-warning" />
+                    <button name="create_record" type="object" string="Create Records" class="btn-danger" />
+                    <button name="write_record" type="object" string="Write Records" class="btn-danger" />
 
 
         </header>

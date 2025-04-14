@@ -81,16 +81,16 @@ class Customer(models.Model):
 
 
         #  for 0,0 (create) (O2M)
-        # for rec in self:
+            # for rec in self:
 
-        #     new_rec={'symp_ids':[(0,0,{
-        #         'name': 'New symptom',
-        #     'labor_hours': '5.30', 
-        #     'part_cost': '500',
-        #     'service_charge':'650'
-        #     })]}
+            #     new_rec={'symp_ids':[(0,0,{
+            #         'name': 'New symptom',
+            #     'labor_hours': '5.30', 
+            #     'part_cost': '500',
+            #     'service_charge':'650'
+            #     })]}
 
-        #     rec.write(new_rec)
+            #     rec.write(new_rec)
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
        #  for 1,id (update) (O2M)
     #    for rec in self:
@@ -417,3 +417,136 @@ class Customer(models.Model):
                 print(f"Record with ID {record_to_check.id} exists.")
          else:
                 print(f"Record with ID {record_to_check.id} does not exist.")
+
+
+    def create_record(self):
+         """
+         Create records from a button click in the same model
+         using all types of fields.
+         ----------------------------------------------------
+         @param self: object pointer
+         """
+
+         new_rec = self.create({
+              'name':"Jal Disuza",
+              'email':'jal@gmail.com',
+              'phone':'4512121245',
+
+         })
+
+
+         new_rec_another_model=self.env['garage.vehicle.company'].create({
+              'company_name':'Fararri'
+         })
+
+         for rec in self:
+
+                new_rec={'symp_ids':[(0,0,{
+                    'name': 'New symptom',
+                'labor_hours': '5.30', 
+                'part_cost': '500',
+                'service_charge':'650'
+                })]}
+
+                rec.create(new_rec)
+
+                new_rec1 = {'symp_idss':[(4,3),(4,2),(4,1)]}
+                rec.create(new_rec1)
+
+
+
+                symptom_ids_to_link = [5, 6, 7]
+
+                new_rec2 = {'symp_idss':[(6,0,symptom_ids_to_link)]}
+                rec.create(new_rec2)
+    
+    
+    def write_record(self):
+         """
+         This is for Write method in ORM
+         ---------------------------------
+         @param self: object pointer
+         """
+        #  update_rec = self.write({
+        #       'name':"Piter Disuza",
+        #       'email':'piter@gmail.com',
+        #       'phone':'4512121245',
+
+        #  })
+
+        #  update_another_model=self.env['garage.vehicle.company'].search([('id', '=', 1)]).write({
+        #       'company_name':'Jagure'
+        #  })
+
+
+         for rec in self:
+
+# Update the O2M field and create a new record in O2M field using both 0,0 and Command.create
+
+                # new_rec={'symp_ids':[(0,0,{
+                #     'name': 'Change Wheels',
+                # 'labor_hours': '2', 
+                # 'part_cost': '5000',
+                # 'service_charge':'7000'
+                # })]}
+
+                # rec.write(new_rec)
+
+
+# Update the O2M field and update an existing record’s fields using 1,<id> 
+
+                # update_rec={'symp_ids':[(1,10,{
+                # 'name': 'update symptom',
+                # 'labor_hours': '5.30', 
+                # 'part_cost': '500',
+                # 'service_charge':'650'
+                # })]}
+
+                # rec.write(update_rec)
+
+# Update the O2M field and delete an existing record making sure it is deleted from the comodel’s table as well
+               
+
+                # del_reco_db_ui =  {'symp_ids':[(2,2)]}
+                # rec.write(del_reco_db_ui)
+
+# Update the O2M field and delete an existing record making sure it is not deleted from the comodel’s table as well.
+
+                # del_rec_ui =  {'symp_ids':[(3,20)]}
+                # rec.write(del_rec_ui)
+
+# Update the O2M field and link an existing record from the comodel
+
+                    # new_rec = {'symp_ids':[(4,17),(4,18),(4,19)]}
+                    # rec.write(new_rec)
+
+# Remove all the records from the O2M field.
+
+                # rmv_all_rec = {'symp_ids': [(5,0,0)]}
+                # rec.write(rmv_all_rec)
+
+# Link new records removing the existing records in an O2M field
+
+
+                # replace_rec = {'symp_ids': [(6,0,[7,8,9,11])]}
+                # rec.write(replace_rec)
+
+
+# Update M2M field to link a value keeping existing values as it is in the M2M field
+
+
+              
+                # update_rec = {'symp_idss':[(4,17),(4,18),(4,19)]}
+                # rec.write(update_rec)
+
+# Update M2M field to remove existing values and add new values
+
+
+                # replace_rec = {'symp_idss':[(6,0,[3,20,27])]}
+                # rec.write(replace_rec)
+
+# Update M2M field to remove all values
+
+                remove_all = {'symp_idss':[(5,0,0)]}
+                rec.write(remove_all)
+
