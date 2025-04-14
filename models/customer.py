@@ -139,15 +139,7 @@ class Customer(models.Model):
 
 
 
-    def read_method(self):
-
-        # Reading all values of current record 
-        crt_rec = self.read()
-        print("Current Record", crt_rec)
-
-        # Reading specific value of current record 
-        spe_value = self.read(['name','phone'])
-        print("Specific values", spe_value)
+    
 
     def copy_method(self):
 
@@ -551,3 +543,22 @@ class Customer(models.Model):
             for rec in job56:
                 
                     print("job 5 and 6 ", rec.service_date)
+
+
+    def read_method(self):
+
+        # Reading all values of current record 
+        crt_rec = self.read()
+        print("Current Record", crt_rec)
+
+        # Reading specific value of current record 
+        spe_value = self.read(['name','phone'])
+        print("Specific values", spe_value)
+
+        rel_val = self.read(['birthdate','symp_idss','symp_ids','manufacturer'])
+        print("Specific values", rel_val)
+
+        another_model = self.env['garage.jobcard']
+
+        new = another_model.browse(4)
+        print("Another model Data:-----",new.read())
