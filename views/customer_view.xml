@@ -40,6 +40,7 @@
                     <button name="filter_val" type="object" string="Filter Values" class="btn-warning" />
                     <button name="print_email" type="object" string="Print Email" class="btn-warning" />
                     <button name="sort_records" type="object" string="Sort Records" class="btn-warning" />
+                    <button name="check_rec_exit" type="object" string="Check Records" class="btn-warning" />
 
 
         </header>

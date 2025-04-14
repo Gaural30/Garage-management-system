@@ -398,3 +398,22 @@ class Customer(models.Model):
 
             without_lambda_decending = records.sorted(lambda rec:rec.id,reverse=True)   
             print("Record sorted decending",without_lambda_decending) 
+
+    def check_rec_exit(self):
+         
+         """
+         Check whether a single record exists in a recordset containing multiple records or not.
+         ---------------------------------------------------------------------------------------
+         @param self: object pointer           
+         """
+
+         records = self.search([])
+
+        
+         record_to_check = self.browse(4)
+
+            # Check if the record exists in the recordset
+         if record_to_check in records:
+                print(f"Record with ID {record_to_check.id} exists.")
+         else:
+                print(f"Record with ID {record_to_check.id} does not exist.")
