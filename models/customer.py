@@ -366,3 +366,35 @@ class Customer(models.Model):
         lambda rec: rec.email and rec.manufacturer and rec.manufacturer.company_name.lower() == 'tatacar')
         print("Filtered Records with multiple conditions:", filtered_records)
 
+    def print_email(self):
+        """
+        Get the value of a field from multiple record recordset for all
+        the records in a list.
+        Perform the same operation as above using lambda
+        --------------------------------------------------------------
+        @param self: object pointer
+        """
+        partners = self.search([])  
+        emails = partners.mapped('email')  
+        print("Emails:", emails)
+
+        emails = partners.mapped(lambda rec: rec.email)
+    
+        print("Emails using Lambda:", emails)
+
+    def sort_records(self):
+            """
+            Sort the records in a recordset with a field.
+            Perform the same operation with lambda.
+            --------------------------------------------------------
+            @param self: object pointer           
+            """
+            records = self.search([])  
+            sorted_records_lambda= sorted(records, key=lambda rec: rec.name or "")
+            print("Sorted Records:", [(rec.id, rec.name) for rec in sorted_records_lambda])
+
+            without_lambda = sorted(records)
+            print("Sorted Records",without_lambda)
+
+            without_lambda_decending = records.sorted(lambda rec:rec.id,reverse=True)   
+            print("Record sorted decending",without_lambda_decending) 

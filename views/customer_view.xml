@@ -38,6 +38,8 @@
                     <button name="ensure_one_method" type="object" string="Ensure" class="btn-warning" />
 
                     <button name="filter_val" type="object" string="Filter Values" class="btn-warning" />
+                    <button name="print_email" type="object" string="Print Email" class="btn-warning" />
+                    <button name="sort_records" type="object" string="Sort Records" class="btn-warning" />
 
 
         </header>
