@@ -292,7 +292,54 @@ class Customer(models.Model):
               print(i.company_name)
               
     def normal_field(self):
-         res= self.browse([4])
+         """
+        Fetch the values of normal and relational fields from a recordset.
+        --------------------------------------------------------------
+        @param self: object pointer
+         """
+         res= self.browse(4)
          print(res.name)
          print(res.phone)
+         relational_field = res.symp_idss
+         for i in relational_field:
+              print("relationla field",i.name)
+        
+
+    def multiple_recordset(self):
+         """ 
+         Try to fetch the fields from a multiple record recordset.
+          --------------------------------------------------------------
+        @param self: object pointer
+         """
+
+         res = self.env['garage.vehicle.company'].search([])
+         for i in res:
+              print(i.company_name)
+    
+    def ensure_one_method(self):
+         """
+         Use the ensure_one method with a single record recordset
+         --------------------------------------------------------------
+        @param self: object pointer
+         """
+         rec = self.browse(26)
+         rec.ensure_one()
+         print("Name: ",rec.name)
+         print("ID:", rec.id)
+         print("Created On:", rec.create_date)
+         print("Last Updated On:", rec.write_date)
+         print("Created By:", rec.create_uid.name)
+         print("Last Updated By:", rec.write_uid.name)
+         print("Display Name:", rec.display_name)
+         # It will raise an error if there are multiple records in the recordset.
+
+         partners = self.env['garage.vehicle.company'].search([])
+         for partner in partners:
+            print("ID:", partner.id)
+            print("Created on:", partner.create_date)
+            print("Created by:", partner.create_uid.name)
+            print("Last Updated:", partner.write_date)
+            print("Updated by:", partner.write_uid.name)
+
+
 

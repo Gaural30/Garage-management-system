@@ -34,6 +34,9 @@
                     <button name="blank_recordset" type="object" string="Recordset" class="btn-warning" />
                     <button name="iterate" type="object" string="Inerate Recordset" class="btn-warning" />
                     <button name="normal_field" type="object" string="browse" class="btn-warning" />
+                    <button name="multiple_recordset" type="object" string="Multiple Recordset" class="btn-warning" />
+                    <button name="ensure_one_method" type="object" string="Ensure" class="btn-warning" />
+
 
 
         </header>
