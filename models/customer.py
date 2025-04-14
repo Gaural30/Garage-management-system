@@ -258,4 +258,21 @@ class Customer(models.Model):
          itm = list(self.env.items())
          print("items", itm)
 
+    def xml_id(self):
+        view = self.env.ref('gsm.view_customer_form')
+        print(view)
+        action = self.env.ref('gsm.action_garage_customer')
+        print(action)
+        menu = self.env.ref('gsm.garage_customer_male')
+        print(menu)
+        group = self.env.ref('gsm.grp_garage_admin')
+        print(group)
+        access = self.env.ref('gsm.access_customer_admin')
+        print(access)
+        admin = self.env.ref('base.user_admin')
+        print(admin)
+        company = self.env.ref('base.main_company')
+        print(company)
+
+
 

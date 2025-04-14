@@ -30,7 +30,7 @@
                     <button name="Cursor" type="object" string="Cursor" class="btn-warning" />
                     <button name="crt_login_user" type="object" string="Current User" class="btn-warning" />
                     <button name="another_model" type="object" string="Another Model" class="btn-warning" />
-                    
+                    <button name="xml_id" type="object" string="XML" class="btn-warning" />
 
 
         </header>
