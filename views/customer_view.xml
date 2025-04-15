@@ -43,6 +43,7 @@
                     <button name="copy_method" type="object" string="Copy" class="btn-primary" />
                     <button name="unlink_method" type="object" string="Unlink" class="btn-primary" />
                     <button name="search_method" type="object" string="Search" class="btn-primary" />
+                    <button name="search_count_method" type="object" string="Search Count" class="btn-primary" />
 
 
         </header>

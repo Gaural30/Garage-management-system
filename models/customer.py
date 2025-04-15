@@ -656,3 +656,27 @@ class Customer(models.Model):
         #  print(priority)
 
         # priority = domain->order->offset->limit.
+
+
+    def search_count_method(self):
+         """
+        This method will perform search_count() operation
+        ---------------------------------------------
+        @param self: object pointer
+        """
+         
+# Count the no of records available in the current model
+
+         count_rec = self.search_count([])
+         print('Total Records: ', count_rec)
+
+# Check the no of records based on a certain condition in the current model.
+
+         specific  =self.search_count([('manufacturer', '=','TVScar')])
+         
+         print("Total Record which has KIA car:",specific)
+
+# Count the no of records in another model.
+         another_rec=  self.env['garage.vehicle.company']
+         count_rec=another_rec.search_count([])
+         print("Total Car Company:",count_rec)
