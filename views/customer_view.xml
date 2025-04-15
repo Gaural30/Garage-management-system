@@ -48,6 +48,7 @@
                     <button name="read_group_method" type="object" string="Read Groups" class="btn-primary" />
                     <button name="add_o2m" type="object" string="Add Symptom" class="btn-danger" />
                     <button name="rmv_o2m" type="object" string="Remove Symptom" class="btn-danger" />
+                    <button name="copy_rec" type="object" string="Copy Record" class="btn-danger" />
 
 
         </header>

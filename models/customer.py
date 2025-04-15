@@ -787,7 +787,15 @@ class Customer(models.Model):
               i.write(rmv_rec)
      
 
-
-
+    def copy_rec(self):
+         """
+         Duplicate a record without using the copy method.
+         -----------------------------------------------------
+         @param self: object pointer
+         """
+         for i in self:
+             copy_rec ={'name':i.name+'(copy)', 'email': i.email, 'phone': i.phone}
+             i.create(copy_rec)
+             print("COPY REC")
 
 
