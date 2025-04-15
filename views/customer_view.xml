@@ -46,7 +46,8 @@
                     <button name="search_count_method" type="object" string="Search Count" class="btn-primary" />
                     <button name="search_read_method" type="object" string="Search Read" class="btn-primary" />
                     <button name="read_group_method" type="object" string="Read Groups" class="btn-primary" />
-                    <button name="btn_o2m" type="object" string="Add Symptom" class="btn-danger" />
+                    <button name="add_o2m" type="object" string="Add Symptom" class="btn-danger" />
+                    <button name="rmv_o2m" type="object" string="Remove Symptom" class="btn-danger" />
 
 
         </header>

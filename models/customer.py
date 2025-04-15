@@ -760,7 +760,7 @@ class Customer(models.Model):
 # field. When you click this button it will add a record in the one2many field.
 
 
-    def btn_o2m(self):
+    def add_o2m(self):
          """
          Add a button on the form view on the page of a one2many
          field. When you click this button it will add a record 
@@ -773,7 +773,18 @@ class Customer(models.Model):
               new_rec = {'symp_ids':[(4,17),(4,18),(4,19)]}
               i.write(new_rec)
 
+    def rmv_o2m(self):
+         """
+         Add another button on the page of one2many field when you
+         click on this button it will remove all the records in one2many.
+         ---------------------------------------------------------------
+         @param self: object pointer
+         """
          
+         for i in self:
+              
+              rmv_rec = {'symp_ids':[(5,0,0)]}
+              i.write(rmv_rec)
      
 
 
