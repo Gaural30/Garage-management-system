@@ -52,6 +52,7 @@
                     <button name="male_list" type="object" string="Male Record" class="btn-primary" />
                     <button name="creater" type="object" string="Creator Recordset" class="btn-primary" />
                     <button name="update_name_with_user" type="object" string="Update name" class="btn-primary" />
+                    <button name="deactivate_activate_record" type="object" string="For Active/Deactivate" class="btn-primary" />
 
 
         </header>

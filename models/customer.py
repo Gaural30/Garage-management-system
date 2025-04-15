@@ -828,3 +828,16 @@ class Customer(models.Model):
         """
         for i in self:
             i.name = self.env.user.name
+
+    def deactivate_activate_record(self):
+        """
+        Add a button, if clicked will deactivate the current record but
+        if you click it again it will activate the current record.
+        ---------------------------------------------------------------
+        @param self: object pointer
+        """
+
+        for i in self:
+         i.active = not i.active
+
+         
