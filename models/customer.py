@@ -811,4 +811,11 @@ class Customer(models.Model):
          res_recs = all_recs.read()
          print('ALL RECORDS', res_recs)
 
-    
+    def creater(self):
+         """
+         Get a recordset of the user who created the record.
+         --------------------------------------------------
+         @param self: object pointer
+         """
+         print("Recordser of Current User", self.env.user)
+

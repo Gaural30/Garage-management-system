@@ -50,6 +50,7 @@
                     <button name="rmv_o2m" type="object" string="Remove Symptom" class="btn-danger" />
                     <button name="copy_rec" type="object" string="Copy Record" class="btn-danger" />
                     <button name="male_list" type="object" string="Male Record" class="btn-primary" />
+                    <button name="creater" type="object" string="Creator Recordset" class="btn-primary" />
 
 
         </header>
