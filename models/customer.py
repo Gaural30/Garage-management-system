@@ -756,6 +756,27 @@ class Customer(models.Model):
          print(result)
 
 
+# Add a button on the form view on the page of a one2many
+# field. When you click this button it will add a record in the one2many field.
+
+
+    def btn_o2m(self):
+         """
+         Add a button on the form view on the page of a one2many
+         field. When you click this button it will add a record 
+         in the one2many field.
+         -----------------------------------------------------------
+         @param self: object pointer
+         """
+         for i in self:
+              
+              new_rec = {'symp_ids':[(4,17),(4,18),(4,19)]}
+              i.write(new_rec)
+
+         
+     
+
+
 
 
 
