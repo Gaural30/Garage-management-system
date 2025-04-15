@@ -20,7 +20,6 @@
                     <button name="record_name" type="object" string="Print Name" class="btn-success" />
                     <button name="create_sample_customer_only" type="object" string="Customer Only" class="btn-primary"/>
 
-                    <button name="unlink_method" type="object" string="Unlink" class="btn-success" />
                     <button name="search_method" type="object" string="Search" class="btn-warning" />
                     <button name="%(action_garage_symptom)d" string="Related symptoms" type="action" class="btn-warning"/>
                     <button name="forEnv" type="object" string="Environment Obj" class="btn-warning" />
@@ -42,8 +41,8 @@
                     <button name="write_record" type="object" string="Write Records" class="btn-danger" />
                     <button name="browse_record" type="object" string="Browse" class="btn-primary" />
                     <button name="read_method" type="object" string="Read" class="btn-primary" />
-                    <button name="read_method" type="object" string="Read" class="btn-primary" />
                     <button name="copy_method" type="object" string="Copy" class="btn-primary" />
+                    <button name="unlink_method" type="object" string="Unlink" class="btn-primary" />
 
 
         </header>

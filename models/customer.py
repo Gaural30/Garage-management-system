@@ -144,10 +144,7 @@ class Customer(models.Model):
 
     
 
-    def unlink_method(self):
-
-        unlic = self.unlink()
-        print(unlic)
+    
 
     def search_method(self):
          all_rec = self.search([])
@@ -592,3 +589,22 @@ class Customer(models.Model):
             # default is used to update the value of the fields before creating the new record.
             new_rec = rec.copy(default=default)
             print("NEW REC", new_rec)
+
+    def unlink_method(self):
+
+# Delete a record from the current model.
+
+        # unlic = self.unlink()
+        # print(unlic)
+
+# Delete multiple records from the current model.
+
+        # unlic_multiple = self.browse([39,40,28,29])
+        # rmv = unlic_multiple.unlink()
+        # print("Records are remove form DB", rmv)
+
+# Delete records of another model.
+
+         another_rec=  self.env['garage.vehicle.company']
+         rmv = another_rec.browse([6])
+         rmv.unlink()
