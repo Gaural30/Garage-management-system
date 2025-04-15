@@ -8,7 +8,7 @@ class Customer(models.Model):
     name = fields.Char(string="Name")
     phone = fields.Char(string="Mobile Number")
     cust_id = fields.Integer(string="Customer ID")
-    email = fields.Char(string="Email")
+    email = fields.Char(string="Email", copy=False)
     gender = fields.Selection(selection=[('male', 'Male'), ('female', 'Female')], string='Gender')
     birthdate = fields.Date('Birthdate', default=fields.Date.today())
     manufacturer = fields.Many2one("garage.vehicle.company",help="Name of company", string='Manufacturer')
@@ -37,7 +37,8 @@ class Customer(models.Model):
     symp_ids = fields.One2many(
         comodel_name='garage.symptom',
         inverse_name='customer_id',
-        string='Customer Symptoms'
+        string='Customer Symptoms',
+        copy= True
     )
 
 
@@ -141,12 +142,7 @@ class Customer(models.Model):
 
     
 
-    def copy_method(self):
-
-
-        # this will make a copy of current record
-        copy_rec= self.copy()
-        print(copy_rec)
+    
 
     def unlink_method(self):
 
@@ -484,8 +480,8 @@ class Customer(models.Model):
 
 # Update the O2M field and link an existing record from the comodel
 
-                    # new_rec = {'symp_ids':[(4,17),(4,18),(4,19)]}
-                    # rec.write(new_rec)
+                    new_rec = {'symp_ids':[(4,17),(4,18),(4,19)]}
+                    rec.write(new_rec)
 
 # Remove all the records from the O2M field.
 
@@ -514,8 +510,8 @@ class Customer(models.Model):
 
 # Update M2M field to remove all values
 
-                remove_all = {'symp_idss':[(5,0,0)]}
-                rec.write(remove_all)
+                # remove_all = {'symp_idss':[(5,0,0)]}
+                # rec.write(remove_all)
 
     def browse_record(self):
 
@@ -526,39 +522,73 @@ class Customer(models.Model):
 
 
             # Browse Multiple Records
-            rec34 = self.browse([3,4])
-            print("Rec 3 and 4", rec34)
+            # rec34 = self.browse([3,4])
+            # print("Rec 3 and 4", rec34)
 
 
-            # browse form another model 
-            other_module = self.env['garage.jobcard']
+            # # browse form another model 
+            # other_module = self.env['garage.jobcard']
 
-            # # Single 
-            job4 = other_module.browse(4)
-            print("Job 4", job4)
+            # # # Single 
+            # job4 = other_module.browse(4)
+            # print("Job 4", job4)
 
 
-            # # multiple
-            job56 = other_module.browse([5,6])
-            for rec in job56:
+            # # # multiple
+            # job56 = other_module.browse([5,6])
+            # for rec in job56:
                 
-                    print("job 5 and 6 ", rec.service_date)
+            #         print("job 5 and 6 ", rec.service_date)
 
 
     def read_method(self):
 
         # Reading all values of current record 
-        crt_rec = self.read()
-        print("Current Record", crt_rec)
+        # crt_rec = self.read()
+        # print("Current Record", crt_rec)
 
-        # Reading specific value of current record 
-        spe_value = self.read(['name','phone'])
-        print("Specific values", spe_value)
+        # # Reading specific value of current record 
+        # spe_value = self.read(['name','phone'])
+        # print("Specific values", spe_value)
 
-        rel_val = self.read(['birthdate','symp_idss','symp_ids','manufacturer'])
-        print("Specific values", rel_val)
+        # rel_val = self.read(['birthdate','symp_idss','symp_ids','manufacturer'])
+        # print("Specific values", rel_val)
 
         another_model = self.env['garage.jobcard']
 
         new = another_model.browse(4)
         print("Another model Data:-----",new.read())
+
+    def copy_method(self):
+        """
+        This method will perform copy() operation
+        ---------------------------------------------
+        @param self: object pointer
+        """
+
+
+# this will make a copy of current record
+        # copy_rec= self.copy()
+        # print(copy_rec)
+
+
+# Duplicate multiple records of the current model.
+
+        # cp_273 = self.browse([26,4])
+        # new_res = cp_273.copy()
+        # print(new_res)
+
+# Duplicate a record and make sure their O2M field is also copied. ----> copy = True in o2m Field 
+
+# Duplicate a record and make sure two fields which were by default copied are now not copied. ---> copy = False
+# added in email field 
+
+# Duplicate a record such that you’re able to differentiate the original record and duplicate record.
+
+        for rec in self:
+            default = {
+                'name': rec.name + ' (Copy)'
+            }
+            # default is used to update the value of the fields before creating the new record.
+            new_rec = rec.copy(default=default)
+            print("NEW REC", new_rec)
