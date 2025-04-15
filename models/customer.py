@@ -626,6 +626,14 @@ class Customer(models.Model):
         #         print("Search name=",i.name)
         #  print(five_limit_rec)
 
+
+# Fetch the records specifically skipping the initial few records.
+         five_offset_rec = self.search([],offset=5)
+         for i in five_offset_rec:
+                print(i.name)
+         print(five_offset_rec)
+
+
 # Fetch the records sorted by name.
 
         #  sorted_by_name = self.search([],order='name')
@@ -642,9 +650,9 @@ class Customer(models.Model):
 
 # Fetch the records using all the parameters and note down the priority given to each parameter.
        
-         priority = self.search([],order='name', limit = 7, offset=3)
-         for i in priority:
-              print(i.name)
-         print(priority)
+        #  priority = self.search([],order='name', limit = 7, offset=3)
+        #  for i in priority:
+        #       print(i.name)
+        #  print(priority)
 
         # priority = domain->order->offset->limit.
