@@ -146,24 +146,7 @@ class Customer(models.Model):
 
     
 
-    def search_method(self):
-         all_rec = self.search([])
-         print("Search",all_rec)
-
-         all_limit_rec = self.search([],limit=3)
-         for i in all_limit_rec:
-                print("Search name=",i.name)
-         print(all_limit_rec)
-
-         offset_rec = self.search([],offset=3)
-         for i in offset_rec:
-              print("name = ",i.name)
-         print("offset = ", offset_rec)
-
-         all_rec_other = self.env['garage.jobcard'] 
-         all_rec1=all_rec_other.search([],limit=5,order="vehicle_name desc")
-         for i in all_rec1:
-              print("name",i.vehicle_name)
+    
 
     def forEnv(self):
          print("Environment is ",self.env) 
@@ -591,6 +574,11 @@ class Customer(models.Model):
             print("NEW REC", new_rec)
 
     def unlink_method(self):
+         """
+        This method will perform unlink() operation
+        ---------------------------------------------
+        @param self: object pointer
+        """
 
 # Delete a record from the current model.
 
@@ -608,3 +596,55 @@ class Customer(models.Model):
          another_rec=  self.env['garage.vehicle.company']
          rmv = another_rec.browse([6])
          rmv.unlink()
+
+
+    def search_method(self):
+         """
+        This method will perform search() operation
+        ---------------------------------------------
+        @param self: object pointer
+        """
+         
+# Fetch all the records from the current model.
+         
+        #  all_rec = self.search([])
+        #  print("Search",all_rec)
+
+# Fetch specific records from the current model.
+
+        #  specific_rec = self.search([('manufacturer', '=','tatacar')])
+        #  print("Search",specific_rec)
+# Fetch specific records from another model.
+        
+        #  another_rec=  self.env['garage.vehicle.company']
+        #  specific_rec = another_rec.search([('company_name', '=','tatacar')])
+        #  print(specific_rec)
+
+# Fetch maximum 5 records.
+        #  five_limit_rec = self.search([],limit=5)
+        #  for i in five_limit_rec:
+        #         print("Search name=",i.name)
+        #  print(five_limit_rec)
+
+# Fetch the records sorted by name.
+
+        #  sorted_by_name = self.search([],order='name')
+        #  for i in sorted_by_name:
+        #       print(i.name)
+        #  print("ASCENDING", sorted_by_name)
+
+# Fetch the records sorted by date in a descending order.
+
+        #  sorted_by_date = self.search([], order ='birthdate desc')
+        #  for i in sorted_by_date:
+        #       print(i.birthdate)
+        #  print(sorted_by_date)
+
+# Fetch the records using all the parameters and note down the priority given to each parameter.
+       
+         priority = self.search([],order='name', limit = 7, offset=3)
+         for i in priority:
+              print(i.name)
+         print(priority)
+
+        # priority = domain->order->offset->limit.
