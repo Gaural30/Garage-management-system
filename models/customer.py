@@ -6,6 +6,7 @@ class Customer(models.Model):
 
 
     name = fields.Char(string="Name")
+    # numeric = fields.Inte
     phone = fields.Char(string="Mobile Number")
     cust_id = fields.Integer(string="Customer ID")
     email = fields.Char(string="Email", copy=False)
@@ -683,7 +684,7 @@ class Customer(models.Model):
 
     def search_read_method(self):
          """
-         This method will perform search_read() operation
+        This method will perform search_read() operation
         ---------------------------------------------
         @param self: object pointer
          """
@@ -709,3 +710,52 @@ class Customer(models.Model):
          sorted_by_name = another_rec.search_read(fields=['company_name'], order='company_name')
 
          print(sorted_by_name)
+
+    def read_group_method(self):
+         """
+        This method will perform read_group() operation
+        ---------------------------------------------
+        @param self: object pointer
+         """
+
+# Call the read_group() method using the numerical fields and grouping fields like selection and many2one
+
+
+        #  res = self.read_group([], fields=['gender','cust_id'], groupby=['gender'])
+        #  print("Group: ", res)
+
+
+# Call the read_group() method using the numerical fields and grouping fields but with multiple grouping.
+        #  result = self.read_group(
+        #     domain=[],
+        #     fields=['gender', 'manufacturer'],
+        #     groupby=['gender', 'manufacturer'],
+        #     lazy=False  
+        # )
+        #  print(result)
+
+# Perform the same operation as above and bring the second level grouping information as well.
+
+        #  result = self.read_group(
+        #     domain=[],
+        #     fields=['gender', 'manufacturer'],
+        #     groupby=['gender', 'manufacturer'],
+        #     lazy=True 
+        # )
+        #  print(result)
+
+# Perform the read_group() method but sort the records by the group by field.
+
+         result = self.read_group(
+            domain=[],
+            fields=['gender', 'manufacturer'],
+            groupby=['gender', 'manufacturer'],
+            lazy=False ,
+            limit = 1
+        )
+         print(result)
+
+
+
+
+
