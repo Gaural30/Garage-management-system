@@ -840,4 +840,26 @@ class Customer(models.Model):
         for i in self:
          i.active = not i.active
 
-         
+    def activate_record(self):
+        """
+        Now add two buttons one will activate the record and one will
+        deactivate the record. The Activate button will be visible
+        when the record is Deactivated. and the Deactivate button
+        will be visible when the record is Active.
+        ---------------------------------------------------------------
+        @param self: object pointer
+        """
+        for rec in self:
+            rec.active = True
+
+    def deactivate_record(self):
+        """
+        Now add two buttons one will activate the record and one will
+        deactivate the record. The Activate button will be visible
+        when the record is Deactivated. and the Deactivate button
+        will be visible when the record is Active.
+        ---------------------------------------------------------------
+        @param self: object pointer
+        """
+        for rec in self:
+            rec.active = False
