@@ -798,4 +798,17 @@ class Customer(models.Model):
              i.create(copy_rec)
              print("COPY REC")
 
+    def male_list(self):
+         """
+         Get a list of dictionaries for all the male records from your
+         model (or use any other condition) without using the
+         search_read() method.
+         -------------------------------------------------------------
+         @param self: object pointer
+         """
+         all_recs = self.search([('gender','=','male')])
+         print("SEARCH",all_recs)
+         res_recs = all_recs.read()
+         print('ALL RECORDS', res_recs)
 
+    
