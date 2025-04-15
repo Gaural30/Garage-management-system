@@ -680,3 +680,26 @@ class Customer(models.Model):
          another_rec=  self.env['garage.vehicle.company']
          count_rec=another_rec.search_count([])
          print("Total Car Company:",count_rec)
+
+    def search_read_method(self):
+         """
+         This method will perform search_read() operation
+        ---------------------------------------------
+        @param self: object pointer
+         """
+
+
+# Fetch all the records of the current model with all their fields in a list of dictionaries.
+
+        #  all_fields= self.search_read()
+        #  print("ALL", all_fields)
+
+# Fetch only relational fields of specific records of the current model in a list of dictionaries.
+         relational_fields = self.search_read(fields=['manufacturer','symp_ids','symp_idss'])
+         print("Relational Fileds are:   ",relational_fields)
+
+
+        #  if m2o is not their then it is False 
+        # if m2m and o2m is not ther then it is is balnk list otherwise this is the ID of thar record
+        # eg-->[{'id': 4, 'manufacturer': (11, 'Kiacar'), 'symp_ids': [17, 18, 19], 'symp_idss': [17, 18]},
+

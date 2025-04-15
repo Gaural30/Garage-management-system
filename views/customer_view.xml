@@ -44,6 +44,7 @@
                     <button name="unlink_method" type="object" string="Unlink" class="btn-primary" />
                     <button name="search_method" type="object" string="Search" class="btn-primary" />
                     <button name="search_count_method" type="object" string="Search Count" class="btn-primary" />
+                    <button name="search_read_method" type="object" string="Search Read" class="btn-primary" />
 
 
         </header>
