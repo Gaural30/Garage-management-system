@@ -819,3 +819,12 @@ class Customer(models.Model):
          """
          print("Recordser of Current User", self.env.user)
 
+    def update_name_with_user(self):
+        """
+        Add a button when clicked will update the user_id field with
+        the current logged in user.
+        ------------------------------------------------------------
+        @param self: object pointer
+        """
+        for i in self:
+            i.name = self.env.user.name
