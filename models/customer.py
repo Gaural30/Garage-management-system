@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class Customer(models.Model):
     _name= 'garage.customer'
@@ -45,6 +46,29 @@ class Customer(models.Model):
 
     symptom_count = fields.Integer(string="Symptoms", compute="_compute_symptom_count")
 
+    double_cust_id = fields.Integer(string="Customer ID x2", compute="_compute_double_cust_id", store=True)
+
+    @api.depends('cust_id')
+    def _compute_double_cust_id(self):
+        for rec in self:
+            rec.double_cust_id = rec.cust_id * 2 if rec.cust_id else 0
+
+    @api.onchange('manufacturer')
+    def _onchange_manufacturer(self):
+            if self.manufacturer:
+                self.model = f"{self.manufacturer.company_name} Standard Model"
+            else:
+                self.model = '' 
+    @api.constrains('email')
+    def _check_email(self):
+        for rec in self:
+            if rec.email and '@' not in rec.email:
+                raise ValidationError("Invalid email: Email must contain '@'")
+    
+    
+            
+   
+            
     # user_id = fields.Many2one('garage.vehicle.company', 'Company name', default=lambda self: self.env.uid)
     user_id = fields.Many2one('res.users', 'User', default=lambda self: self.env.user.id)
     company_id = fields.Many2one(
@@ -863,3 +887,65 @@ class Customer(models.Model):
         """
         for rec in self:
             rec.active = False
+
+
+# API (DECORATORS)
+
+# 4.1.1 --> Describe the model API 
+# ----> @api.model is a decorator which is use without any records 
+
+
+# 4.1.2 --->Describe the model_create_single API
+# -----> It is use for only create method
+# -----> it is use to create a single record only  
+# @model_create_single
+#     def create(self, vals)  
+#         return super().create(vals)
+
+# 4.1.3 ---> Describe the model_create_multi API
+# -----> This is also use for only create method
+# -----> this is use to create multiplr records 
+
+# 4.1.4 ---> Describe the depends API
+# -----> @api.depends is use for compute attribute field
+# -----> when we need to do perform any calculation at that time we use @api.depends 
+# @api.depends('cust_id')
+#     def _compute_double_cust_id(self):
+#         for rec in self:
+#             rec.double_cust_id = rec.cust_id * 2 if rec.cust_id else 0
+
+
+# 4.1.5 ---> Describe the onchange API
+# -----> onchange api is used when we change any filed values
+# -----> another field wiil change based on that field
+# @api.onchange('manufacturer')
+#     def _onchange_manufacturer(self):
+#             if self.manufacturer:
+#                 self.model = f"{self.manufacturer.company_name} Standard Model"
+#             else:
+#                 self.model = '' 
+# -----> in this example when we select manufacturer then model field is changed based on manufacturer
+
+
+# 4.1.6 ---> Describe the constrains API
+# -----> it is to add Object Constraints on the model
+# @api.constrains('email')
+#     def _check_email(self):
+#         for rec in self:
+#             if rec.email and '@' not in rec.email:
+#                 raise ValidationError("Invalid email: Email must contain '@'")
+# ---> In this exapmle of "@" is not inside emails then it show error 
+
+# 4.1.7 ---> Describe the readonly API
+# -----> this api make the record or method read only and we can't update it.
+# -----> For example If i apply readonly on email field then i will not able to change email after recored is created 
+
+
+# 4.1.8 ---> Describe the returns API
+# -----> using this api we can defain what the method will return 
+# -----> This will not change functionality but improves code quality and future compatibility
+
+
+# 4.1.9 ---> Describe the private API
+# -----> It is use to make the public method private in RPC call
+
