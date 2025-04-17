@@ -11,4 +11,4 @@ class repair(models.Model):
     # repair_id = fields.Many2one("garage.vehicle", "Vehicle")
     jobcard_id = fields.Many2one("garage.jobcard", string="Job Card")
 
-    name=fields.Many2one("garage.symptom","symptom")
+    symptom_id=fields.Many2one("garage.symptom","symptom")

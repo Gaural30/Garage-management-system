@@ -2,8 +2,8 @@
     'name': 'Garage management system',
     'summary': 'This model wil be used for Garage Management System',
     'category' : 'Garage',
-    'auther': 'Gaural Makwana',
-    'depends':['base','hr','stock'],
+    'auther': 'SKYSCEND BUSINESS SOLUTIONS PVT LTD.',
+    'depends':['base','stock'],
     'data' : [
         'security/garage_security.xml',
         'security/ir.model.access.csv',
@@ -17,7 +17,6 @@
         
         
     ],
-    'sequence': 10,
     'auto_install': False,
     'installable' : True,
     'application' : True,

@@ -6,7 +6,7 @@ class GarageVehicle(models.Model):
     _order = 'sequence'
     _rec_name = "customer_id"
 
-    customer_id = fields.Many2one('res.partner', string='Customer', required=True)
+    customer_id = fields.Many2one('garage.customer', string='Customer', required=True)
     # customer_id=fields.Many2one('garage.customer', "Customer" , ondelete="restrict")
     phone = fields.Char(related="customer_id.phone", string='Mobile Number')
     email = fields.Char(related="customer_id.email", string="Email")

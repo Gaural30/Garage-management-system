@@ -15,7 +15,7 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="name"/>
+                        <field name="symptom_id"/>
                     </group>
                 </sheet>
             </form>
@@ -27,7 +27,7 @@
     <field name="model">garage.repair</field>
     <field name="arch" type="xml">
         <list>
-            <field name="name"/>
+            <field name="symptom_id"/>
         </list>
     </field>
 </record>
@@ -37,7 +37,7 @@
     <field name="model">garage.repair</field>
     <field name="arch" type="xml">
         <search>
-            <field name="name"/>
+            <field name="symptom_id"/>
         </search>
     </field>
 </record>

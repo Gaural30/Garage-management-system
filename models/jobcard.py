@@ -25,10 +25,10 @@ class JobCard(models.Model):
     _description = "This is for making a job card for Vehicles"
     _rec_name = "customer_id"
 
-    customer_id = fields.Many2one("garage.vehicle", string="Customer Name", required=True)
-    vehicle_name = fields.Char(related="customer_id.vehicle_name", string="Vehicle Name")
-    registration_number = fields.Char(related="customer_id.registration_number", string="Registration Number")
-    vehicle_model = fields.Char(related="customer_id.vehicle_model", string="Model")
+    customer_id = fields.Many2one("garage.customer", string="Customer Name", required=True)
+    vehicle_name = fields.Char(string="Vehicle Name")
+    registration_number = fields.Char( string="Registration Number")
+    vehicle_model = fields.Char( string="Model")
     service_type = fields.Selection(selection=[('free', "Free"), ('paid', 'Paid')], string="Service type")
     mechanic_id = fields.Many2one('hr.employee', string="Mechanic")
     symptom_ids = fields.One2many("garage.repair", "jobcard_id", string="Symptoms")

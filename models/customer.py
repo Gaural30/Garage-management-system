@@ -1,10 +1,17 @@
-from odoo import models, fields, api
+from odoo import models, fields, api , Command
 from odoo.exceptions import ValidationError
 
 class Customer(models.Model):
     _name= 'garage.customer'
     _description = 'Customers'
 
+# create 0
+#         update 1
+#         delete 2 
+#         unlink 3
+#         link 4
+#         clear 5
+#         set 6
 
     name = fields.Char(string="Name")
     # numeric = fields.Inte
@@ -76,30 +83,40 @@ class Customer(models.Model):
         string='Company',
         default=lambda self: self.env.company.id
     )
-
+         
     def _compute_symptom_count(self):
         for record in self:
             count = self.env['garage.symptom'].search_count([('customer_id', '=', record.id)])
             record.symptom_count = count
 
 
-    def action_view_symptoms(self):
-        self.ensure_one()
-        return {
-            'type': 'ir.actions.act_window',
-            'name': 'Symptoms',
-            'view_mode': 'list,form',
-            'res_model': 'garage.symptom',
-            'domain': [('customer_id', '=', self.id)],
-            'context': {'default_customer_id': self.id}
-        }
+#     def action_view_symptoms(self):
+#         self.ensure_one()
+#         return {
+#             'type': 'ir.actions.act_window',
+#             'name': 'Symptoms',
+#             'view_mode': 'list,form',
+#             'res_model': 'garage.symptom',
+#             'domain': [('customer_id', '=', self.id)],
+#             'context': {'default_customer_id': self.id}
+#         }
 
     def record_name(self):
          print(self.name)
+         mtdata = self.get_metadata()
+         print("matadata", mtdata)
+         cust_with_car = self.sorted('name')
+         print(cust_with_car)
+
+         rec = self.filtered(lambda rec: rec.name == 'Hitesh Sagathiya')
+         print("ANUP", rec)
+         res = rec not in self
+         print("Checking in Self", res)
 
   
-
-
+        #  for i in self: 
+        #       print(i.symp_idss)
+        #       print(i.symp_ids)
         
     # this will create only customer 
     def create_sample_customer_only(self):
@@ -246,7 +263,7 @@ class Customer(models.Model):
 # what is self: self refers to the current recordset
 
     def blank_recordset(self):
-         empty_recordset = self.env['garage.jobcard'].browse([])
+         empty_recordset = self.env['garage.jobcard']
          print("Blank Recordset",empty_recordset)
 
     def iterate(self):
@@ -268,9 +285,13 @@ class Customer(models.Model):
          res= self.browse(4)
          print(res.name)
          print(res.phone)
-         relational_field = res.symp_idss
-         for i in relational_field:
+         relational_field1 = res.symp_idss
+         for i in relational_field1:
               print("relationla field",i.name)
+         relational_field2 = res.symp_ids
+         for i in relational_field2:
+              print("Relational filed 2", i.name)
+
         
 
     def multiple_recordset(self):
@@ -325,10 +346,8 @@ class Customer(models.Model):
         print("IDs with email:", ids_with_email)
 
 
-        filtered_records_without_lambda = self.search([
-        ('email', '!=', False), 
-        ('manufacturer.company_name', '=', 'tatacar')])
-        print("Filtered Records without lambda:", filtered_records_without_lambda)
+        filtered_records_without_lambda = self.filtered('name')
+        print("filtered_records_without_lambda",filtered_records_without_lambda)
 
         filtered_records = all_records.filtered(
         lambda rec: rec.email and rec.manufacturer and rec.manufacturer.company_name.lower() == 'tatacar')
@@ -395,38 +414,53 @@ class Customer(models.Model):
          @param self: object pointer
          """
 
-         new_rec = self.create({
-              'name':"Jal Disuza",
-              'email':'jal@gmail.com',
-              'phone':'4512121245',
+        #  new_rec = self.create({
+        #       'name':"Jal Disuza",
+        #       'email':'jal@gmail.com',
+        #       'phone':'4512121245',
+        #       'gender' : 'male',
+        #       'birthdate' : '2006-09-23',
+        #       'active' : True
 
-         })
+        #  })
 
 
-         new_rec_another_model=self.env['garage.vehicle.company'].create({
-              'company_name':'Fararri'
-         })
+        #  new_rec_another_model=self.env['garage.vehicle.company'].create({
+        #       'company_name':'Fararri'
+        #  })
 
          for rec in self:
 
-                new_rec={'symp_ids':[(0,0,{
-                    'name': 'New symptom',
-                'labor_hours': '5.30', 
-                'part_cost': '500',
-                'service_charge':'650'
-                })]}
+                # new_rec={'symp_ids':[(0,0,{
+                #     'name': 'New symptom',
+                # 'labor_hours': '5.30', 
+                # 'part_cost': '500',
+                # 'service_charge':'650'
+                # })]}
 
-                rec.create(new_rec)
-
-                new_rec1 = {'symp_idss':[(4,3),(4,2),(4,1)]}
-                rec.create(new_rec1)
+                # rec.create(new_rec)
 
 
+                # new_rec_using_command_create={'symp_ids':[(Command.create({'name':'Change Side Glasses','labor_hours':'6','part_cost':'2000','service_charge':'3500'}))]}
 
-                symptom_ids_to_link = [5, 6, 7]
+                # rec.create(new_rec_using_command_create)
 
-                new_rec2 = {'symp_idss':[(6,0,symptom_ids_to_link)]}
-                rec.create(new_rec2)
+
+                # new_rec1 = {'symp_idss':[(4,3),(4,2),(4,1)]}
+                # rec.create(new_rec1)
+
+                # new_rec1_command_link = {'symp_idss': [Command.link(5),Command.link(4),Command.link(1)]}
+                # rec.create(new_rec1_command_link)
+
+
+
+                # symptom_ids_to_link = [5, 6, 7]
+
+                # new_rec2 = {'symp_idss':[(6,0,symptom_ids_to_link)]}
+                # rec.create(new_rec2)
+
+                new_rec2_command_set = {'symp_idss': [Command.set([5,6,7])]}
+                rec.create(new_rec2_command_set)
     
     
     def write_record(self):
@@ -439,6 +473,8 @@ class Customer(models.Model):
         #       'name':"Piter Disuza",
         #       'email':'piter@gmail.com',
         #       'phone':'4512121245',
+        #       
+        
 
         #  })
 
@@ -457,8 +493,10 @@ class Customer(models.Model):
                 # 'part_cost': '5000',
                 # 'service_charge':'7000'
                 # })]}
-
                 # rec.write(new_rec)
+
+                # new_rec_command_create={'symp_ids': [(Command.create({'name':'Change Side Glasses','labor_hours':'6','part_cost':'2000','service_charge':'3500'}))]}
+                # rec.write(new_rec_command_create)
 
 
 # Update the O2M field and update an existing record’s fields using 1,<id> 
@@ -469,8 +507,10 @@ class Customer(models.Model):
                 # 'part_cost': '500',
                 # 'service_charge':'650'
                 # })]}
-
                 # rec.write(update_rec)
+
+                # new_rec_command_update = {'symp_ids': [Command.update (6,{'name':'Change Right Glasses','labor_hours':'6','part_cost':'2000','service_charge':'3500'})]}
+                # rec.write(new_rec_command_update)
 
 # Update the O2M field and delete an existing record making sure it is deleted from the comodel’s table as well
                
@@ -478,26 +518,41 @@ class Customer(models.Model):
                 # del_reco_db_ui =  {'symp_ids':[(2,2)]}
                 # rec.write(del_reco_db_ui)
 
+                # del_reco_command_delete = {'symp_ids': [Command.delete(1)]}
+                # rec.write(del_reco_command_delete)
+
 # Update the O2M field and delete an existing record making sure it is not deleted from the comodel’s table as well.
 
                 # del_rec_ui =  {'symp_ids':[(3,20)]}
                 # rec.write(del_rec_ui)
 
+                # del_rec_unlink = {'symp_ids': [Command.unlink(32)]}
+                # rec.write(del_rec_unlink)
+
 # Update the O2M field and link an existing record from the comodel
 
-                    new_rec = {'symp_ids':[(4,17),(4,18),(4,19)]}
-                    rec.write(new_rec)
+                #     new_rec = {'symp_ids':[(4,17),(4,18),(4,19)]}
+                #     rec.write(new_rec)
+
+                # new_rec_command_link = {'symp_ids' :[Command.link(5),Command.link(4),Command.link(3)]}
+                # rec.write(new_rec_command_link)
 
 # Remove all the records from the O2M field.
 
                 # rmv_all_rec = {'symp_ids': [(5,0,0)]}
                 # rec.write(rmv_all_rec)
 
+                # rmv_all_rec_command_clear = {'symp_ids' : [Command.clear()]}
+                # rec.write(rmv_all_rec_command_clear)
+
 # Link new records removing the existing records in an O2M field
 
 
                 # replace_rec = {'symp_ids': [(6,0,[7,8,9,11])]}
                 # rec.write(replace_rec)
+
+                # replace_rec_command_set = {'symp_ids': [Command.set([7,8,9,11])]}
+                # rec.write(replace_rec_command_set)
 
 
 # Update M2M field to link a value keeping existing values as it is in the M2M field
@@ -507,16 +562,25 @@ class Customer(models.Model):
                 # update_rec = {'symp_idss':[(4,17),(4,18),(4,19)]}
                 # rec.write(update_rec)
 
+                # update_rec_command_link = {'symp_idss' :[Command.link(5),Command.link(4),Command.link(3)]}
+                # rec.write(update_rec_command_link)
+
 # Update M2M field to remove existing values and add new values
 
 
                 # replace_rec = {'symp_idss':[(6,0,[3,20,27])]}
                 # rec.write(replace_rec)
 
+                replace_rec_command_set = {'symp_idss': [Command.set([7,8,9,11])]}
+                rec.write(replace_rec_command_set)
+
 # Update M2M field to remove all values
 
                 # remove_all = {'symp_idss':[(5,0,0)]}
                 # rec.write(remove_all)
+
+                # rmv_all_rec_command_clear = {'symp_ids' : [Command.clear()]}
+                # rec.write(rmv_all_rec_command_clear)
 
     def browse_record(self):
 
@@ -556,13 +620,13 @@ class Customer(models.Model):
         # spe_value = self.read(['name','phone'])
         # print("Specific values", spe_value)
 
-        # rel_val = self.read(['birthdate','symp_idss','symp_ids','manufacturer'])
-        # print("Specific values", rel_val)
+        rel_val = self.read(['birthdate','symp_idss','symp_ids','manufacturer'])
+        print("Specific values", rel_val)
 
-        another_model = self.env['garage.jobcard']
+        # another_model = self.env['garage.jobcard']
 
-        new = another_model.browse(4)
-        print("Another model Data:-----",new.read())
+        # new = another_model.browse(4)
+        # print("Another model Data:-----",new.read())
 
     def copy_method(self):
         """
@@ -729,11 +793,11 @@ class Customer(models.Model):
         # eg-->[{'id': 4, 'manufacturer': (11, 'Kiacar'), 'symp_ids': [17, 18, 19], 'symp_idss': [17, 18]},
 
 # Fetch the records of another model sorted by their name in a list of dictionaries 
-         another_rec=  self.env['garage.vehicle.company']
+        #  another_rec=  self.env['garage.vehicle.company']
 
-         sorted_by_name = another_rec.search_read(fields=['company_name'], order='company_name')
+        #  sorted_by_name = another_rec.search_read(fields=['company_name'], order='company_name')
 
-         print(sorted_by_name)
+        #  print(sorted_by_name)
 
     def read_group_method(self):
          """
@@ -851,7 +915,7 @@ class Customer(models.Model):
         @param self: object pointer
         """
         for i in self:
-            i.name = self.env.user.name
+            self.name = self.env.user.name
 
     def deactivate_activate_record(self):
         """
@@ -862,7 +926,8 @@ class Customer(models.Model):
         """
 
         for i in self:
-         i.active = not i.active
+
+                i.active = not i.active
 
     def activate_record(self):
         """
@@ -874,6 +939,7 @@ class Customer(models.Model):
         @param self: object pointer
         """
         for rec in self:
+            
             rec.active = True
 
     def deactivate_record(self):
