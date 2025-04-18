@@ -15,7 +15,7 @@
                     <field name="cost_price"/>
                     <field name="sale_price"/>
                     <!-- <field name="supplier_id"/> -->
-                    <field name="location_id"/>
+                    <!-- <field name="location_id"/> -->
                 </group>
             </sheet>
         </form>

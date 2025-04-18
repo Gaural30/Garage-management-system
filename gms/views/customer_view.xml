@@ -23,7 +23,7 @@
                             icon="fa-wrench">
                         <field name="symptom_count" widget="statinfo" string="Jobcard"/>
                     </button>
-                </div>
+                </div> 
                     <button name="record_name" type="object" string="Print Name" class="btn-success" />
                     <button name="create_sample_customer_only" type="object" string="Customer Only" class="btn-primary"/>
 
